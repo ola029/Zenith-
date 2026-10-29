@@ -1,0 +1,13 @@
+{
+  "name": "Zenith - Painel de Controle",
+  "short_name": "Zenith",
+  "description": "Painel para gerenciar jogadores, banimentos e assinaturas.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#050b17",
+  "theme_color": "#050b17",
+  "icons": [
+    {"src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable"}
+  ]
+}

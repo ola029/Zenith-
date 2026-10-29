@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zenith — Painel de Controle</title>
+<style>
+:root{--bg:#050b17;--panel:#0a1426;--panel2:#0c1a31;--line:#1c3152;--text:#eef4ff;--muted:#9bb2d8;--blue:#2474ff;--cyan:#16c7ff;--red:#ff3d59;--green:#13d99a;--purple:#a875ff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 70% -20%,#102d69 0,transparent 40%),var(--bg);color:var(--text);font:15px/1.45 system-ui,-apple-system,Segoe UI,sans-serif}
+button,input,select,textarea{font:inherit}button{cursor:pointer;border:0;color:white;font-weight:650;border-radius:9px;padding:11px 14px;transition:.15s}button:hover{filter:brightness(1.12)}input,select,textarea{width:100%;background:#071020;color:var(--text);border:1px solid #294267;border-radius:9px;padding:12px;outline:none}input:focus,select:focus,textarea:focus{border-color:var(--cyan)}textarea{resize:vertical;min-height:78px}.app{display:grid;grid-template-columns:220px 1fr;min-height:100vh}.sidebar{border-right:1px solid var(--line);padding:22px 14px;background:#060d1b;display:flex;flex-direction:column;gap:8px}.brand{display:flex;gap:10px;align-items:center;font-size:25px;font-weight:850;margin:2px 10px 24px}.crown{color:var(--cyan);font-size:30px}.nav{width:100%;text-align:left;background:transparent;color:#b8c9e8;font-weight:550}.nav.active{background:linear-gradient(100deg,#1747b6,#0c2b75);color:#fff}.sidefoot{margin-top:auto;border:1px solid var(--line);padding:13px;border-radius:10px;color:var(--muted);font-size:13px}.main{min-width:0}.topbar{height:72px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 28px;color:var(--muted)}.topbar strong{color:var(--text)}.content{padding:26px;max-width:1500px;margin:auto}.welcome{border:1px solid #17396b;border-radius:14px;padding:22px 25px;background:linear-gradient(110deg,#0b1d42,#081329 65%,#0a2259);display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:20px}.welcome h1{font-size:25px;margin:0 0 4px}.welcome p{margin:0;color:#b6c9ed}.online{border:1px solid #24416b;border-radius:10px;padding:13px 16px;min-width:160px;background:#071020}.dot{display:inline-block;width:9px;height:9px;background:var(--green);border-radius:50%;margin-right:8px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.card{border:1px solid var(--line);border-radius:13px;background:linear-gradient(145deg,#0b1629,#07101e);padding:20px;min-width:0}.card h2{font-size:18px;margin:0 0 6px}.sub{color:var(--muted);font-size:13px;margin:0 0 18px}.field{margin:13px 0}.field label{display:block;color:#c5d6f2;font-size:13px;margin-bottom:7px}.btn-red{background:linear-gradient(100deg,#e92745,#c91436);width:100%;margin-top:6px}.btn-blue{background:linear-gradient(100deg,#286cff,#1457dc);width:100%;margin-top:6px}.btn-muted{background:#10213c;border:1px solid #2a4265;color:#cfe0ff}.btn-small{padding:7px 9px;font-size:12px}.section-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}.table-wrap{overflow-x:auto}table{width:100%;border-collapse:collapse;white-space:nowrap;font-size:13px}th,td{text-align:left;padding:12px 10px;border-bottom:1px solid #192c48}th{color:#a9c1e8;font-weight:600}td{color:#dce8fc}.pill{display:inline-block;padding:4px 9px;border-radius:20px;font-size:11px;font-weight:750}.active-pill{background:#064d3c;color:#4cf2bd}.expired-pill{background:#4c1824;color:#ff91a2}.plan{color:#54b7ff}.empty{text-align:center;color:var(--muted);padding:24px}.notice{display:none;margin:0 0 15px;padding:11px 14px;border-radius:9px;background:#103728;color:#9bf4cf;border:1px solid #1e6b51}.notice.error{background:#421824;color:#ffb1bc;border-color:#843247}.hidden{display:none!important}.footer{text-align:center;color:#738caf;font-size:12px;padding:25px}.danger-outline{background:transparent;color:#ff6175;border:1px solid #a52c42}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px}.stat{background:#09162a;border:1px solid var(--line);padding:14px;border-radius:10px}.stat small{color:var(--muted)}.stat b{display:block;font-size:24px;margin-top:3px}
+@media(max-width:900px){.app{grid-template-columns:1fr}.sidebar{position:static;display:flex;flex-direction:row;flex-wrap:wrap;align-items:center;padding:10px}.brand{width:100%;margin:0 8px 5px}.nav{width:auto;flex:1;text-align:center;padding:9px 10px;font-size:13px}.sidefoot{display:none}.topbar{height:55px;padding:0 16px}.content{padding:14px}.grid{grid-template-columns:1fr}.welcome{align-items:flex-start;flex-direction:column;padding:18px}.online{width:100%}.stats{grid-template-columns:repeat(3,minmax(0,1fr))}.stat{padding:10px}.stat b{font-size:20px}}
+</style>
+  <meta name="theme-color" content="#050b17">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><span class="crown">♛</span> Zenith</div>
+  <button class="nav active" data-page="home">⌂ &nbsp; Painel inicial</button>
+  <button class="nav" data-page="ban">⊘ &nbsp; Banir jogador</button>
+  <button class="nav" data-page="renew">▦ &nbsp; Renovar assinatura</button>
+  <button class="nav" data-page="players">♙ &nbsp; Jogadores</button>
+  <button class="nav" data-page="subs">♛ &nbsp; Assinaturas</button>
+  <button class="nav" data-page="logs">▤ &nbsp; Logs</button>
+  <button class="nav" data-page="ranks">⬆ &nbsp; Subir cargo</button>
+  <div class="sidefoot"><b>♛ Zenith</b><br>Painel de Controle v1.0<br><br>Protótipo local para gerenciamento.</div>
+</aside>
+<main class="main">
+<header class="topbar"><span>Seu servidor, nosso compromisso.</span><span>♛ <strong>Você — Dono</strong> &nbsp; · &nbsp; ♛ <strong>Johnny — Dono</strong></span></header>
+<div class="content">
+<div class="welcome"><div><h1>Olá, administrador!</h1><p>Gerencie jogadores e datas de assinatura em um só lugar.</p></div><div class="online"><span class="dot"></span><b>Painel funcionando</b><br><small id="playerCount">0 jogadores cadastrados</small></div></div>
+<div id="notice" class="notice" role="status"></div>
+<div class="stats">
+ <div class="stat"><small>Jogadores cadastrados</small><b id="statPlayers">0</b></div>
+ <div class="stat"><small>Assinaturas ativas</small><b id="statSubs">0</b></div>
+ <div class="stat"><small>Jogadores banidos</small><b id="statBans">0</b></div>
+</div>
+<section id="home" class="page">
+ <div class="grid">
+  <div class="card"><h2>🔴 Banir jogador</h2><p class="sub">Registre um banimento neste painel.</p>
+   <form id="banForm"><div class="field"><label for="banName">Nome ou ID do jogador</label><input id="banName" required placeholder="Ex.: jogador123"></div><div class="field"><label for="banReason">Motivo (opcional)</label><textarea id="banReason" placeholder="Informe o motivo do banimento"></textarea></div><button class="btn-red">Banir jogador</button></form>
+  </div>
+  <div class="card"><h2>📅 Renovar assinatura</h2><p class="sub">Defina até qual dia a assinatura será válida.</p>
+   <form id="renewForm"><div class="field"><label for="renewName">Nome ou ID do jogador</label><input id="renewName" required placeholder="Ex.: jogador123"></div><div class="field"><label for="plan">Plano</label><select id="plan"><option>Premium</option><option>VIP</option><option>Básico</option></select></div><div class="field"><label for="renewDate">Válida até</label><input id="renewDate" type="date" required></div><button class="btn-blue">Salvar assinatura</button></form>
+  </div>
+  <div class="card"><div class="section-head"><h2>🔴 Banimentos recentes</h2><button class="btn-muted btn-small" data-go="ban">Gerenciar</button></div><div id="recentBans" class="table-wrap"></div></div>
+  <div class="card"><div class="section-head"><h2>♛ Assinaturas</h2><button class="btn-muted btn-small" data-go="subs">Ver todas</button></div><div id="recentSubs" class="table-wrap"></div></div>
+ </div>
+</section>
+<section id="ban" class="page hidden"><div class="card"><h2>Banir jogador</h2><p class="sub">Isso registra o banimento apenas neste protótipo.</p><form id="banForm2"><div class="field"><label>Nome ou ID</label><input id="banName2" required></div><div class="field"><label>Motivo</label><textarea id="banReason2"></textarea></div><button class="btn-red">Registrar banimento</button></form></div><div class="card" style="margin-top:16px"><h2>Jogadores banidos</h2><div id="allBans" class="table-wrap"></div></div></section>
+<section id="renew" class="page hidden"><div class="card"><h2>Renovar assinatura</h2><p class="sub">Cadastre ou atualize a data de vencimento de um jogador.</p><form id="renewForm2"><div class="field"><label>Nome ou ID do jogador</label><input id="renewName2" required></div><div class="field"><label>Plano</label><select id="plan2"><option>Premium</option><option>VIP</option><option>Básico</option></select></div><div class="field"><label>Válida até</label><input id="renewDate2" type="date" required></div><button class="btn-blue">Salvar assinatura</button></form></div></section>
+<section id="players" class="page hidden"><div class="card"><div class="section-head"><h2>Jogadores cadastrados</h2><button id="addPlayerBtn" class="btn-muted btn-small">+ Adicionar jogador</button></div><div id="allPlayers" class="table-wrap"></div></div></section>
+<section id="subs" class="page hidden"><div class="card"><h2>Assinaturas</h2><p class="sub">Assinaturas expiradas são identificadas automaticamente pela data.</p><div id="allSubs" class="table-wrap"></div></div></section>
+<section id="logs" class="page hidden"><div class="card"><div class="section-head"><h2>Registro de atividades</h2><button id="clearLogs" class="btn-muted btn-small">Limpar logs</button></div><div id="allLogs" class="table-wrap"></div></div></section>
+<section id="ranks" class="page hidden"><div class="card"><h2>⬆ Subir cargo</h2><p class="sub">Escolha um jogador e defina o novo cargo no painel.</p><form id="rankForm"><div class="field"><label for="rankName">Nome ou ID do jogador</label><input id="rankName" required placeholder="Ex.: Johnny"></div><div class="field"><label for="rankRole">Novo cargo</label><select id="rankRole"><option>Membro</option><option>VIP</option><option>Suporte</option><option>Moderador</option><option>Administrador</option><option>Dono</option></select></div><button class="btn-blue">Salvar novo cargo</button></form></div><div class="card" style="margin-top:16px"><h2>Cargos definidos</h2><div id="allRanks" class="table-wrap"></div></div></section>
+<div class="footer">♛ Zenith &nbsp; | &nbsp; Painel demonstrativo · 2026</div>
+</div></main></div>
+<script>
+const $=id=>document.getElementById(id);
+const key='zenith_demo_v1';
+let data={players:[],bans:[],subs:[],logs:[],roles:[]};
+try{data={...data,...JSON.parse(localStorage.getItem(key)||'{}')}}catch(e){}
+function save(){localStorage.setItem(key,JSON.stringify(data));render()}
+function log(action,detail){data.logs.unshift({action,detail,date:new Date().toLocaleString('pt-BR')});data.logs=data.logs.slice(0,100)}
+function notify(msg,error=false){const n=$('notice');n.textContent=msg;n.className='notice'+(error?' error':'');n.style.display='block';setTimeout(()=>n.style.display='none',3500)}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function dateFmt(s){if(!s)return '—';const [y,m,d]=s.split('-');return `${d}/${m}/${y}`}
+function status(s){return s>=new Date().toISOString().slice(0,10)?'<span class="pill active-pill">Ativa</span>':'<span class="pill expired-pill">Expirada</span>'}
+function table(headers,rows){if(!rows.length)return '<div class="empty">Nenhum registro ainda.</div>';return '<table><thead><tr>'+headers.map(h=>'<th>'+h+'</th>').join('')+'</tr></thead><tbody>'+rows.join('')+'</tbody></table>'}
+function banRows(list){return table(['Jogador','Motivo','Data','Ação'],list.map((b,i)=>`<tr><td>${esc(b.name)}</td><td>${esc(b.reason||'Não informado')}</td><td>${esc(b.date)}</td><td><button class="btn-muted btn-small" onclick="unban('${b.id}')">Desbanir</button></td></tr>`))}
+function subRows(list){return table(['Jogador','Plano','Válida até','Status'],list.map(s=>`<tr><td>${esc(s.name)}</td><td class="plan">${esc(s.plan)}</td><td>${dateFmt(s.date)}</td><td>${status(s.date)}</td></tr>`))}
+function playerRows(){return table(['Jogador','Status','Assinatura','Ação'],data.players.map(p=>{let sub=data.subs.find(s=>s.name.toLowerCase()===p.name.toLowerCase());let banned=data.bans.some(b=>b.name.toLowerCase()===p.name.toLowerCase());return `<tr><td>${esc(p.name)}</td><td>${banned?'<span class="pill expired-pill">Banido</span>':'<span class="pill active-pill">Regular</span>'}</td><td>${sub?dateFmt(sub.date):'Sem assinatura'}</td><td><button class="btn-muted btn-small" onclick="quickRenew('${p.id}')">Renovar</button></td></tr>`}).join(''))}
+function render(){$('allRanks').innerHTML=table(['Jogador','Cargo'],data.roles.map(r=>`<tr><td>${esc(r.name)}</td><td><span class="pill active-pill">${esc(r.role)}</span></td></tr>`));data.players.forEach(p=>{});$('statPlayers').textContent=data.players.length;$('statSubs').textContent=data.subs.filter(s=>s.date>=new Date().toISOString().slice(0,10)).length;$('statBans').textContent=data.bans.length;$('playerCount').textContent=data.players.length+' jogadores cadastrados';$('recentBans').innerHTML=banRows(data.bans.slice(0,4));$('allBans').innerHTML=banRows(data.bans);$('recentSubs').innerHTML=subRows(data.subs.slice(0,4));$('allSubs').innerHTML=subRows(data.subs);$('allPlayers').innerHTML=playerRows();$('allLogs').innerHTML=table(['Ação','Detalhes','Data'],data.logs.map(l=>`<tr><td>${esc(l.action)}</td><td>${esc(l.detail)}</td><td>${esc(l.date)}</td></tr>`))}
+function registerBan(name,reason){name=name.trim();if(!name)return;let player=data.players.find(p=>p.name.toLowerCase()===name.toLowerCase());if(!player){player={id:crypto.randomUUID(),name};data.players.push(player)}if(data.bans.some(b=>b.name.toLowerCase()===name.toLowerCase())){notify('Esse jogador já está banido.',true);return}data.bans.unshift({id:crypto.randomUUID(),name,reason:reason.trim(),date:new Date().toLocaleDateString('pt-BR')});log('Banimento',name+' — '+(reason.trim()||'sem motivo informado'));save();notify('Banimento registrado no painel.')}
+function registerSub(name,plan,date){name=name.trim();if(!name||!date)return;let player=data.players.find(p=>p.name.toLowerCase()===name.toLowerCase());if(!player){player={id:crypto.randomUUID(),name};data.players.push(player)}let sub=data.subs.find(s=>s.name.toLowerCase()===name.toLowerCase());if(sub){sub.plan=plan;sub.date=date}else data.subs.unshift({id:crypto.randomUUID(),name,plan,date});log('Assinatura',name+' — '+plan+' até '+dateFmt(date));save();notify('Assinatura salva neste painel.')}
+$('banForm').addEventListener('submit',e=>{e.preventDefault();registerBan($('banName').value,$('banReason').value);e.target.reset()});
+$('banForm2').addEventListener('submit',e=>{e.preventDefault();registerBan($('banName2').value,$('banReason2').value);e.target.reset()});
+$('renewForm').addEventListener('submit',e=>{e.preventDefault();registerSub($('renewName').value,$('plan').value,$('renewDate').value);e.target.reset()});
+$('renewForm2').addEventListener('submit',e=>{e.preventDefault();registerSub($('renewName2').value,$('plan2').value,$('renewDate2').value);e.target.reset()});
+window.unban=id=>{const b=data.bans.find(x=>x.id===id);if(!b)return;data.bans=data.bans.filter(x=>x.id!==id);log('Desbanimento',b.name);save();notify('Banimento removido do painel.')};
+window.quickRenew=id=>{const p=data.players.find(x=>x.id===id);if(!p)return;showPage('renew');$('renewName2').value=p.name;$('renewDate2').value=new Date(Date.now()+30*86400000).toISOString().slice(0,10);$('plan2').focus()};
+function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.toggle('hidden',p.id!==id));document.querySelectorAll('.nav').forEach(n=>n.classList.toggle('active',n.dataset.page===id));window.scrollTo({top:0,behavior:'smooth'})}
+document.querySelectorAll('.nav').forEach(n=>n.addEventListener('click',()=>showPage(n.dataset.page)));document.querySelectorAll('[data-go]').forEach(n=>n.addEventListener('click',()=>showPage(n.dataset.go)));
+$('addPlayerBtn').addEventListener('click',()=>{let name=prompt('Nome ou ID do jogador:');if(!name||!name.trim())return;if(data.players.some(p=>p.name.toLowerCase()===name.trim().toLowerCase())){notify('Esse jogador já existe.',true);return}data.players.push({id:crypto.randomUUID(),name:name.trim()});log('Cadastro de jogador',name.trim());save();notify('Jogador cadastrado.')});
+$('clearLogs').addEventListener('click',()=>{if(confirm('Tem certeza que deseja limpar os logs?')){data.logs=[];save();notify('Logs limpos.')}});
+$('rankForm').addEventListener('submit',e=>{e.preventDefault();const name=$('rankName').value.trim(),role=$('rankRole').value;if(!name)return;let player=data.players.find(p=>p.name.toLowerCase()===name.toLowerCase());if(!player){player={id:crypto.randomUUID(),name};data.players.push(player)}let current=data.roles.find(r=>r.name.toLowerCase()===name.toLowerCase());if(current)current.role=role;else data.roles.push({id:crypto.randomUUID(),name,role});log('Alteração de cargo',name+' agora é '+role);save();e.target.reset();notify('Cargo atualizado neste painel.')});
+render();
+</script>
+<script>if ("serviceWorker" in navigator && location.protocol.startsWith("http")) { window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(()=>{})); }</script>
+</body></html>
